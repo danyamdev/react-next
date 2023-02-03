@@ -1,9 +1,11 @@
 :root {
 	--font-family: "Nunito", sans-serif;
 	--black: #3B434E;
+	--gray-light: #EBEBEB;
 	--white: #FFF;
 	--background: #E5E5E5;
 	--primary: #7653FC;
+	--primary-hover: #5539c0;
 	--red: #FC836D;
 	--green: #1DC37E;
 	--green-light: #C8F8E4;
