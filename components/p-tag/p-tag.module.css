@@ -1,0 +1,19 @@
+.default {
+  margin: 0;
+
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.l {
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.m {
+  font-size: 16px;
+}
+
+.s {
+  font-size: 14px;
+}
