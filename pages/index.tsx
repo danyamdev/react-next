@@ -1,6 +1,10 @@
-import { Button, HTag, PTag, Tag } from '@/components';
+import { useState } from 'react';
+
+import { Button, HTag, PTag, Rating, Tag } from '@/components';
 
 export default function Home() {
+  const [rating, setRating] = useState<number>(3);
+
   return (
     <>
       <div>
@@ -56,6 +60,21 @@ export default function Home() {
         <Tag color="gray" size="s">
           10
         </Tag>
+      </div>
+
+      <div style={{ background: 'white', padding: '10px', }}>
+        isEditable = false
+        <Rating rating={3} />
+      </div>
+
+      <div style={{ background: 'white', padding: '10px', }}>
+        isEditable = true
+        <Rating rating={3} isEditable />
+      </div>
+
+      <div style={{ background: 'white', padding: '10px', }}>
+        isEditable = true and setRating
+        <Rating rating={rating} setRating={setRating} isEditable />
       </div>
     </>
   );
