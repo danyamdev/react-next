@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
+import { withLayout } from '@/layout';
 import { Button, HTag, PTag, Rating, Tag } from '@/components';
 
-export default function Home() {
+function Home() {
   const [rating, setRating] = useState<number>(3);
 
   return (
@@ -62,20 +63,22 @@ export default function Home() {
         </Tag>
       </div>
 
-      <div style={{ background: 'white', padding: '10px', }}>
+      <div style={{ background: 'white', padding: '10px' }}>
         isEditable = false
         <Rating rating={3} />
       </div>
 
-      <div style={{ background: 'white', padding: '10px', }}>
+      <div style={{ background: 'white', padding: '10px' }}>
         isEditable = true
         <Rating rating={3} isEditable />
       </div>
 
-      <div style={{ background: 'white', padding: '10px', }}>
+      <div style={{ background: 'white', padding: '10px' }}>
         isEditable = true and setRating
         <Rating rating={rating} setRating={setRating} isEditable />
       </div>
     </>
   );
 }
+
+export default withLayout(Home);
