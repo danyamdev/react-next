@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { GetStaticProps } from 'next';
+import axios from 'axios';
 
 import { withLayout } from '@/layout';
 import { Button, HTag, PTag, Rating, Tag } from '@/components';
 
-function Home() {
+import { IMenuItem } from '@/interfaces/menu-item.interface';
+
+function Home({ menu }: IHomeProps) {
   const [rating, setRating] = useState<number>(3);
 
   return (
@@ -82,3 +86,23 @@ function Home() {
 }
 
 export default withLayout(Home);
+
+export const getStaticProps: GetStaticProps = async () => {
+  const firstCategory = 0;
+  const { data: menu } = await axios.post<IMenuItem[]>(
+    process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
+    { firstCategory },
+  );
+
+  return {
+    props: {
+      menu,
+      firstCategory,
+    },
+  };
+};
+
+interface IHomeProps extends Record<string, unknown> {
+  menu: IMenuItem[];
+  firstCategory: number;
+}
